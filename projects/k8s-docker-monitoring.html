@@ -1,0 +1,81 @@
+---
+layout: default
+title: Monitoring & Alerting Stack
+---
+
+# Monitoring & Alerting with Docker and Kubernetes
+
+## 🔍 Project Overview
+This project sets up a complete **observability stack** using **Prometheus**, **Grafana**, and **Alertmanager**, deployed on **Docker Compose** and later transitioned to **Kubernetes**. It demonstrates how to collect, visualize, and react to metrics and logs in real time.
+
+## 🧰 Tools & Technologies
+- **Prometheus**
+- **Grafana**
+- **Alertmanager**
+- **Node Exporter**, **cAdvisor**
+- **Docker Compose** and **Minikube** (K8s)
+- **Loki** for log aggregation
+
+## 📷 Stack Diagram
+![Monitoring Stack](../assets/monitoring-stack-placeholder.png)
+
+## 📁 Repository
+- GitHub: [k8s-docker-monitoring](https://github.com/fernandezdelpeloso/k8s-docker-monitoring)
+
+## ⚙️ Services Overview
+- **Prometheus**: Scrapes metrics from targets (Node Exporter, cAdvisor)
+- **Grafana**: Dashboards for CPU, memory, disk, and container metrics
+- **Alertmanager**: Email or Slack alerts based on custom thresholds
+- **Loki**: Stores and queries logs for each container or pod
+
+## 🐳 Docker Deployment Instructions
+1. Clone the repo:
+```bash
+git clone https://github.com/fernandezdelpeloso/k8s-docker-monitoring.git
+cd k8s-docker-monitoring/docker
+```
+2. Start the stack:
+```bash
+docker-compose up -d
+```
+3. Access Grafana at `http://localhost:3000` (default login: admin/admin)
+4. Add Prometheus as data source and import dashboards
+
+## ☸️ Kubernetes Deployment
+1. Set up Minikube or a cloud K8s cluster
+2. Apply manifests from `k8s/` folder:
+```bash
+kubectl apply -f k8s/
+```
+3. Use `kubectl port-forward` to access Grafana
+
+## 📈 Example Dashboards
+- System Overview (CPU, Memory, Disk)
+- Docker Container Health
+- Kubernetes Pod Monitoring
+
+## 🔔 Alert Rules
+```yaml
+- alert: HighCPUUsage
+  expr: avg(rate(node_cpu_seconds_total{mode!="idle"}[2m])) > 0.9
+  for: 2m
+  labels:
+    severity: warning
+  annotations:
+    summary: High CPU usage detected
+```
+
+## 🧠 Lessons Learned
+- Prometheus scraping intervals and relabeling
+- Grafana templating and panel design
+- Handling retention and storage limits
+- Centralized alerting strategy
+
+## 📌 Next Steps
+- Add metrics for custom apps
+- Integrate with Slack or email alerts
+- Automate deployment with Helm
+
+---
+
+**Back to [Home](../index.html)**

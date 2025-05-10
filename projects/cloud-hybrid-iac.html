@@ -1,0 +1,74 @@
+---
+layout: default
+title: Hybrid Cloud Infrastructure with Terraform
+---
+
+# Hybrid Cloud Infrastructure Automation (AWS + Azure)
+
+## 🔍 Project Overview
+This project provisions and manages infrastructure across **AWS** and **Azure** simultaneously using **Terraform**, enabling hybrid cloud deployments that maintain consistent network and compute configurations across providers.
+
+## 🧰 Tools & Technologies
+- **Terraform** (multi-provider setup)
+- **AWS EC2**, VPC, S3
+- **Azure VM**, Resource Group, Virtual Network
+- **Remote state** with S3 and Azure Blob
+- **Terraform workspaces**
+
+## 📷 Architecture Diagram
+![Hybrid Cloud Diagram](../assets/hybrid-cloud-placeholder.png)
+
+## 📁 Repository
+- GitHub: [cloud-hybrid-iac](https://github.com/fernandezdelpeloso/cloud-hybrid-iac)
+
+## 🔗 Multi-Provider Setup
+```hcl
+provider "aws" {
+  region = "us-east-1"
+}
+
+provider "azurerm" {
+  features {}
+}
+```
+
+## ⚙️ Deployed Resources
+**AWS:**
+- EC2 instance in a public subnet
+- S3 bucket for logging
+
+**Azure:**
+- Virtual machine in VNet
+- Storage Account
+
+## 🚀 Deployment Steps
+1. Configure credentials for both providers
+2. Clone and initialize the project:
+```bash
+git clone https://github.com/fernandezdelpeloso/cloud-hybrid-iac.git
+cd cloud-hybrid-iac
+terraform init
+```
+3. Apply infrastructure:
+```bash
+terraform apply
+```
+
+## 🗃 Remote State Management
+- AWS backend: S3 + DynamoDB for locking
+- Azure backend: Blob Storage + container
+
+## 🧠 Lessons Learned
+- Handling authentication for multiple providers
+- Parallel resource provisioning with `depends_on` control
+- Managing naming conflicts and CIDR ranges
+- Cross-provider output usage and formatting
+
+## 📌 Next Steps
+- Add Kubernetes cluster on each side
+- Automate cross-cloud DNS resolution
+- Setup VPC peering or VPN tunnels for hybrid communication
+
+---
+
+**Back to [Home](../index.html)**
