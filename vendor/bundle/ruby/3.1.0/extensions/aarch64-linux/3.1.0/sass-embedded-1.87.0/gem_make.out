@@ -1,0 +1,12 @@
+current directory: /home/eduardo/devops-portfolio-site/vendor/bundle/ruby/3.1.0/gems/sass-embedded-1.87.0/ext/sass
+/usr/bin/ruby3.1 -I/usr/lib/ruby/vendor_ruby -rrubygems /home/eduardo/devops-portfolio-site/vendor/bundle/ruby/3.1.0/gems/rake-13.2.1/exe/rake RUBYARCHDIR\=/home/eduardo/devops-portfolio-site/vendor/bundle/ruby/3.1.0/extensions/aarch64-linux/3.1.0/sass-embedded-1.87.0 RUBYLIBDIR\=/home/eduardo/devops-portfolio-site/vendor/bundle/ruby/3.1.0/extensions/aarch64-linux/3.1.0/sass-embedded-1.87.0
+gem install --force --install-dir /home/eduardo/devops-portfolio-site/vendor/bundle/ruby/3.1.0/gems/sass-embedded-1.87.0/ext/sass/ruby --no-document --ignore-dependencies --platform aarch64-linux-gnu --version 1.87.0 sass-embedded
+fetch https://github.com/sass/dart-sass/releases/download/1.87.0/dart-sass-1.87.0-linux-arm64.tar.gz
+tar -vxC . -f dart-sass-1.87.0-linux-arm64.tar.gz --no-same-owner --no-same-permissions
+rm -rf /home/eduardo/devops-portfolio-site/vendor/bundle/ruby/3.1.0/gems/sass-embedded-1.87.0/ext/sass/ruby
+mkdir -p .
+dart-sass/src/LICENSE
+dart-sass/src/dart
+dart-sass/src/sass.snapshot
+dart-sass/sass
+rm dart-sass-1.87.0-linux-arm64.tar.gz

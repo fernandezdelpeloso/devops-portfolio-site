@@ -1,0 +1,67 @@
+---
+layout: default
+title: AWS Multi-Tier Terraform Project
+permalink: /projects/aws-multitier-terraform.html
+---
+
+
+# Terraform AWS Multi-Tier Infrastructure
+
+## 🔍 Project Overview
+This project demonstrates how to deploy a multi-tier architecture on AWS using **Terraform**. The architecture consists of a public load balancer, web tier in public subnets, and a private data tier using RDS in private subnets.
+
+## 🧰 Tools & Technologies
+- **Terraform** (v1.5+)
+- **AWS EC2**, **RDS**, **VPC**, **ALB**, **Security Groups**
+- **CloudWatch Logs** for monitoring
+
+## 📷 Architecture Diagram
+![AWS Architecture](../assets/aws-terraform-diagram-placeholder.png)
+
+## 📁 Repository
+- GitHub: [aws-multitier-terraform](https://github.com/fernandezdelpeloso/aws-multitier-terraform)
+
+## 🏗️ Infrastructure Details
+- VPC with 2 public and 2 private subnets
+- Internet Gateway for public access
+- NAT Gateway for private subnet egress
+- Application Load Balancer (ALB)
+- Auto-scaling EC2 Web Tier
+- RDS (PostgreSQL) in private subnets
+- Bastion Host (optional)
+
+## 🚀 Deploy Instructions
+1. Clone the repo:
+```bash
+git clone https://github.com/fernandezdelpeloso/aws-multitier-terraform.git
+cd aws-multitier-terraform
+```
+2. Set up AWS credentials
+3. Initialize and apply Terraform:
+```bash
+terraform init
+terraform apply
+```
+
+## 📊 Example Outputs
+- Public ALB DNS Name: `http://multi-tier-app-12345678.eu-central-1.elb.amazonaws.com`
+- RDS Endpoint: `multi-tier-db.c8d2rjsxyz.us-east-1.rds.amazonaws.com`
+
+## 🧠 Lessons Learned
+- Importance of modular Terraform structure for reuse
+- Managing outputs and remote state
+- Real-world challenges with NAT Gateway costs and subnet CIDR planning
+
+## 🔒 Security Considerations
+- Separate security groups per tier
+- Least privilege IAM roles for EC2 and Terraform
+- Optional Bastion host access via SSH (restricted IPs only)
+
+## ✅ Next Steps
+- Add monitoring with CloudWatch and custom alarms
+- Integrate CI/CD for auto-deploying updates
+- Add HTTPS termination at ALB
+
+---
+
+**Back to [Home](../index.html)**
