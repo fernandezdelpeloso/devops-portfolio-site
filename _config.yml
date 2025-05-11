@@ -18,13 +18,6 @@ theme: minima
 include:
   - projects
 
-collections:
-  projects:
-    output: true
-    permalink: /projects/:name.html
-
-
-
 #
 # Flags below are optional
 #
@@ -97,3 +90,8 @@ exclude:
   - LICENSE
   - README.md
   - CNAME
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name.html
